@@ -95,8 +95,6 @@
   flex-direction: row;
 }
 
-.nav .start
-
 @media (max-width: 700px) {
   .square {
     width: 130px;
