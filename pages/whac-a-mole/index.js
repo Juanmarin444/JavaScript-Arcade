@@ -9,7 +9,7 @@ import { alertService } from '../../services'
 import { Alert } from '../../components/alert';
 
 const WhacAMole = () => {
-  const [time, setTime] = useState(5)
+  const [time, setTime] = useState(30)
   const [gameRunning, setGameRunning] = useState(false)
   const [score, setScore] = useState(0)
 
@@ -32,8 +32,8 @@ const WhacAMole = () => {
   const startClick = () => {
     if (!gameRunning) {
       if (currentTime === 0) {
-        currentTime = 5
-        setTime(5)
+        currentTime = 30
+        setTime(30)
       }
       setScore(0)
       setGameRunning(true)
