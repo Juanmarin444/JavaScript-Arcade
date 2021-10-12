@@ -1,10 +1,8 @@
 // Assets
-// import { server } from '../../config'
 import { useRef, useState } from 'react'
 import images from '../../public/images/index.js'
 import styles from '../../styles/MemoryGame.module.css'
 import { alertService } from '../../services'
-
 import { cardArray } from '../../data'
 
 // Next Assets
@@ -16,9 +14,6 @@ import Footer from '../../components/Footer'
 
 const MemoryGame = () => {
   const [score, setScore] = useState(0)
-
-  console.log('my_cardArray - ', cardArray);
-  // console.log('My_images - ', images);
 
   cardArray.sort(() => 0.5 - Math.random())
   const cards = useRef(null)
@@ -43,7 +38,7 @@ const MemoryGame = () => {
     }
   }
 
-  function checkForMatch() {
+  const checkForMatch = () => {
     var myCards = cards.current.children;
     const optionOneId = cardsChosenId[0]
     const optionTwoId = cardsChosenId[1]
@@ -98,17 +93,5 @@ const MemoryGame = () => {
     </div>
   )
 }
-
-// export const getStaticProps = async () => {
-//
-//   console.log('ServeR: ', server);
-//
-//   const res = await fetch(`${server}/api/cards`)
-//   const cardArrayCall = await res.json()
-//
-//   return {
-//     props: {cardArrayCall}
-//   }
-// }
 
 export default MemoryGame
