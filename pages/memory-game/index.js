@@ -1,9 +1,11 @@
 // Assets
-import { server } from '../../config'
+// import { server } from '../../config'
 import { useRef, useState } from 'react'
 import images from '../../public/images/index.js'
 import styles from '../../styles/MemoryGame.module.css'
 import { alertService } from '../../services'
+
+import { cardArray } from '../../data'
 
 // Next Assets
 import Head from 'next/head'
@@ -12,10 +14,13 @@ import Image from 'next/image'
 import { Alert } from '../../components/alert';
 import Footer from '../../components/Footer'
 
-const MemoryGame = ({cardArray}) => {
+const MemoryGame = () => {
   const [score, setScore] = useState(0)
-  cardArray.sort(() => 0.5 - Math.random())
 
+  console.log('my_cardArray - ', cardArray);
+  // console.log('My_images - ', images);
+
+  cardArray.sort(() => 0.5 - Math.random())
   const cards = useRef(null)
   const resultDisplay = useRef(null)
 
@@ -94,16 +99,16 @@ const MemoryGame = ({cardArray}) => {
   )
 }
 
-export const getStaticProps = async () => {
-
-  console.log('ServeR: ', server);
-
-  const res = await fetch(`${server}/api/cards`)
-  const cardArray = await res.json()
-  
-  return {
-    props: {cardArray}
-  }
-}
+// export const getStaticProps = async () => {
+//
+//   console.log('ServeR: ', server);
+//
+//   const res = await fetch(`${server}/api/cards`)
+//   const cardArrayCall = await res.json()
+//
+//   return {
+//     props: {cardArrayCall}
+//   }
+// }
 
 export default MemoryGame
