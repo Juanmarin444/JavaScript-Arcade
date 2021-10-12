@@ -3,7 +3,7 @@ import Footer from '../../components/Footer'
 import styles from '../../styles/SpaceInvader.module.css'
 
 
-const SpaceInvader = () => {
+const SpaceInvader = ({props}) => {
   return (
     <div className={styles.container}>
       <main className={styles.main}>

@@ -95,9 +95,12 @@ const MemoryGame = ({cardArray}) => {
 }
 
 export const getStaticProps = async () => {
+
+  console.log('ServeR: ', server);
+
   const res = await fetch(`${server}/api/cards`)
   const cardArray = await res.json()
-
+  
   return {
     props: {cardArray}
   }
