@@ -1,11 +1,11 @@
 .container {
-  min-height: 100vh;
+  /* min-height: 100vh; */
   padding: 0 0.5rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  /* height: 100vh; */
 }
 
 .main {
@@ -27,4 +27,27 @@
 
 .grid img {
   border-radius: 20px;
+}
+
+.accent {
+  color: #ff3e39;
+}
+
+.alertContainer {
+  height: 55px;
+  margin-top: 1.245rem;
+}
+
+@media (max-width: 450px) {
+  .grid {
+    height: 430px;
+    width: 320px;
+  }
+}
+
+@media (max-width: 300px) {
+  .grid {
+    height: 650px;
+    width: 210px;
+  }
 }

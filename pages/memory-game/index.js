@@ -1,16 +1,19 @@
 // Assets
 import { server } from '../../config'
-import { useRef } from 'react'
+import { useRef, useState } from 'react'
 import images from '../../public/images/index.js'
 import styles from '../../styles/MemoryGame.module.css'
+import { alertService } from '../../services'
+
 // Next Assets
 import Head from 'next/head'
 import Image from 'next/image'
 // Components
-import Footer from '../../components/memory-game/Footer'
+import { Alert } from '../../components/alert';
+import Footer from '../../components/Footer'
 
-const MemoryGame = ({ cardArray }) => {
-
+const MemoryGame = ({cardArray}) => {
+  const [score, setScore] = useState(0)
   cardArray.sort(() => 0.5 - Math.random())
 
   const cards = useRef(null)
@@ -40,7 +43,6 @@ const MemoryGame = ({ cardArray }) => {
     const optionOneId = cardsChosenId[0]
     const optionTwoId = cardsChosenId[1]
     if (cardsChosen[0] === cardsChosen[1]) {
-      alert('You found a match')
       myCards[optionOneId].children[1].src = images.white.src
       myCards[optionOneId].children[1].srcset = images.white.src
 
@@ -53,33 +55,38 @@ const MemoryGame = ({ cardArray }) => {
 
       myCards[optionTwoId].children[1].src = images.blank.src
       myCards[optionTwoId].children[1].srcset = images.blank.src
-      alert('Sorry, try again')
     }
     cardsChosen = []
     cardsChosenId = []
     resultDisplay.current.textContent = cardsWon.length
     if (cardsWon.length === cardArray.length/2) {
+      alertService.success(`Congratulations you <strong>won</strong>! `, {autoClose: true, keepAfterRouteChange: false});
       resultDisplay.current.textContent = 'Congratulations you won!'
     }
   }
 
+  const restart = () => {
+    setScore(1);
+  }
+
   return (
     <div className={styles.container}>
+      <Head>
+        <title>Memory Game</title>
+        <meta name="description" content="Super fun memory game" />
+        <link rel="icon" href="/favicon.svg" />
+      </Head>
       <main className={styles.main}>
-        <Head>
-          <title>Memory Game</title>
-          <meta name="description" content="Super fun memory game" />
-          <link rel="icon" href="/favicon.svg" />
-        </Head>
-        <h1>Memory Game</h1>
+        <h1>Memory <span className={styles.accent}>Game</span></h1>
         <h3>Score: <span ref={resultDisplay}></span></h3>
+        <button onClick={restart}>Restart</button>
         <div className={styles.grid}  ref={cards}>
-
           {cardArray.map((card, index) => (
-
             <Image key={index} src={images.blank} dataid={index} onClick={flipCard} alt='card' />
-
           ))}
+        </div>
+        <div className={styles.alertContainer}>
+          <Alert />
         </div>
       </main>
       <Footer />
@@ -92,9 +99,7 @@ export const getStaticProps = async () => {
   const cardArray = await res.json()
 
   return {
-    props: {
-      cardArray
-    }
+    props: {cardArray}
   }
 }
 

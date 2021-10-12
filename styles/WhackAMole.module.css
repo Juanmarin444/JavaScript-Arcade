@@ -1,0 +1,139 @@
+.container {
+  padding: 0 0.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.main {
+  padding: 2rem 0;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.square {
+  width: 200px;
+  height: 200px;
+  border: solid 1px #3a3a3a;
+  border-radius: 10px;
+  background: #1b1b1b;
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+
+.square:hover,
+.square:focus,
+.square:active {
+  border-color: #ff3e39;
+  cursor: crosshair;
+}
+
+.grid {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-content: center;
+  width: 620px;
+  height: 620px;
+  grid-gap: 10px;
+}
+
+.mole {
+  background-image: url('../public/whackAMole-images/mole.jpg');
+  background-size: cover;
+}
+
+.accent {
+  color: #ff3e39;
+}
+
+.accent:hover,
+.accent:focus,
+.accent:active {
+  text-decoration: underline;
+}
+
+.start {
+  background: #1b1b1b;
+  border: solid 1px #3a3a3a;
+  border-radius: 10px;
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin: 1.245rem 1.245rem;
+  padding: 10px 20px;
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+
+.start:hover,
+.start:focus,
+.start:active {
+  color: #ff3e39;
+  border-color: #ff3e39;
+  cursor: pointer;
+}
+
+.alertContainer {
+  height: 55px;
+  margin-bottom: 1.245rem;
+}
+
+.gameInfo {
+  display: flex;
+  flex-direction: row;
+}
+
+.gameInfo h2 {
+  padding: 0 .8rem;
+}
+
+.nav {
+  display:flex;
+  flex-direction: row;
+}
+
+.nav .start
+
+@media (max-width: 700px) {
+  .square {
+    width: 130px;
+    height: 130px;
+  }
+  .grid {
+    width: 430px;
+    height: 430px;
+    grid-gap: 10px;
+  }
+}
+
+@media (max-width: 450px) {
+  .square {
+    width: 90px;
+    height:  90px;
+  }
+  .grid {
+    width: 300px;
+    height: 300px;
+    grid-gap: 10px;
+  }
+  .gameInfo {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .gameInfo h2 {
+
+    padding: 0;
+  }
+}
+
+@media (max-width: 350px) {
+  .grid {
+    width: 280px;
+    height: 280px;
+    grid-gap: 0px;
+  }
+}
