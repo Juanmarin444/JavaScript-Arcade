@@ -15,7 +15,7 @@ export default function Home() {
       </Head>
       <main className={styles.main}>
         <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">JavaScript Games!</a>
+          Welcome to <a href="https://github.com/Juanmarin444/JavaScript-Games" target='_blank' rel="noreferrer">JavaScript Games!</a>
         </h1>
 
         <p className={styles.description}>
@@ -44,26 +44,21 @@ export default function Home() {
             </a>
           </Link>
 
-          <a
-            href="https://github.com/vercel/next.js/tree/master/examples"
-            className={styles.card}
-          >
-            <h2>Some Other Game &rarr;</h2>
-            <p>Some other game.</p>
-          </a>
+          <Link href="/">
+            <a className={styles.card}>
+              <h2>A Different Game &rarr;</h2>
+              <p>A different game.</p>
+            </a>
+          </Link>
 
-          <a
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-          >
-            <h2>A Different Game &rarr;</h2>
-            <p>
-              A different game.
-            </p>
-          </a>
+          <Link href="/">
+            <a className={styles.card}>
+              <h2>Some Other Game &rarr;</h2>
+              <p>Some other game.</p>
+            </a>
+          </Link>
         </div>
       </main>
-
       <Footer />
     </div>
   )
