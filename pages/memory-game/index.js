@@ -52,7 +52,7 @@ const MemoryGame = () => {
         e.target.src = cardArray[cardId].img.src
         e.target.srcset = cardArray[cardId].img.src
         if (cardsChosen.length === 2) {
-          setTimeout(checkForMatch, 300)
+          setTimeout(checkForMatch, 250)
         }
       }
     } else {
@@ -92,8 +92,11 @@ const MemoryGame = () => {
     resultDisplay.current.textContent = playerGuesses
 
     if (cardsWon.length === cardArray.length/2) {
-
-      alertService.success(`Congratulations! You <strong>finished</strong> with ${playerGuesses} guesses left!`, {autoClose: true, keepAfterRouteChange: false});
+      if (playerGuesses > 1) {
+        alertService.success(`Congratulations! You <strong>finished</strong> with ${playerGuesses} guesses left!`, {autoClose: true, keepAfterRouteChange: false});
+      } else if (playerGuesses === 1) {
+        alertService.success(`Congratulations! You <strong>finished</strong> with ${playerGuesses} guess left!`, {autoClose: true, keepAfterRouteChange: false});
+      }
 
       setTimeout(resetGame, 4000)
     }
