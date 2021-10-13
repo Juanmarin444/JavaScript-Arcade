@@ -82,7 +82,7 @@ const MemoryGame = () => {
 
         alertService.success(`Aww snaps you <strong>LOST</strong>! Why don't you try again?`, {autoClose: true, keepAfterRouteChange: false});
 
-        setTimeout(resetGame, 4000)
+        setTimeout(resetGame, 3500)
       }
     }
 
@@ -98,7 +98,7 @@ const MemoryGame = () => {
         alertService.success(`Congratulations! You <strong>finished</strong> with ${playerGuesses} guess left!`, {autoClose: true, keepAfterRouteChange: false});
       }
 
-      setTimeout(resetGame, 4000)
+      setTimeout(resetGame, 3500)
     }
   }
 
@@ -139,7 +139,7 @@ const MemoryGame = () => {
             cardArray.map((card, index) => (
               <Image key={index} src={images.blank} dataid={index} onClick={flipCard} alt='card' />
             ))
-          ) : (<h3>Press Start</h3>)}
+          ) : (<></>)}
         </div>
 
         <div className={styles.alertContainer}>
