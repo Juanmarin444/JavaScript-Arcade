@@ -52,7 +52,7 @@ const MemoryGame = () => {
         e.target.src = cardArray[cardId].img.src
         e.target.srcset = cardArray[cardId].img.src
         if (cardsChosen.length === 2) {
-          setTimeout(checkForMatch, 250)
+          setTimeout(checkForMatch, 350)
         }
       }
     } else {
