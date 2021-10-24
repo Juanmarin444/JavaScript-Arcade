@@ -1,4 +1,4 @@
-import { useRef, useEffect } from 'react'
+import { useRef, useEffect, useState } from 'react'
 import Head from 'next/head'
 import Footer from '../../components/Footer'
 import styles from '../../styles/ConnectFour.module.css'
@@ -6,13 +6,23 @@ import Link from 'next/link'
 
 
 const ConnectFour = ({props}) => {
+  const [ isRunning, setIsRunning ] = useState(false);
+
   const squaresRef = useRef(null)
   const resultRef = useRef(null)
   const currentPlayerRef = useRef(null)
 
   useEffect(() => {
-    startGame();
-  }, []);
+    if (isRunning) {
+      startGame();
+    } else {
+      console.log("Press Start");
+    }
+  });
+
+  const startButtonHandler = () => {
+    setIsRunning(true)
+  }
 
   const startGame = () => {
     const squares = squaresRef.current.childNodes;
@@ -22,10 +32,7 @@ const ConnectFour = ({props}) => {
 
     for (var i = 0; i < squares.length; i++) (
       function(index) {
-        // console.log("===============");
-        // console.log(index);
-        // console.log(i);
-        // console.log("===============");
+
         squares[i].onclick = function() {
           if (squares[index + 7]) {
             if (squares[index + 7].classList.contains('ConnectFour_taken__2rwDL') && squares[index].classList.contains('ConnectFour_playable__zZbqW')) {
@@ -34,7 +41,7 @@ const ConnectFour = ({props}) => {
                 squares[index].classList.add('ConnectFour_playerOne__3_wbE');
                 player = 2
                 currentPlayer.innerHTML = player
-                checkBoard(squares)
+                checkBoard(squares, result)
               } else if (player === 2) {
                 squares[index].classList.replace('ConnectFour_playable__zZbqW', 'ConnectFour_taken__2rwDL')
                 squares[index].classList.add('ConnectFour_playerTwo__1xcjw')
@@ -138,7 +145,13 @@ const ConnectFour = ({props}) => {
         square3.classList.contains('ConnectFour_playerOne__3_wbE') &&
         square4.classList.contains('ConnectFour_playerOne__3_wbE')) {
         //if they do, player-one is passed as the winner
-        result.innerHTML = 'Player One Wins!'
+        result.innerHTML = 'Player One Wins!';
+        setIsRunning(false);
+        //Create a function to clear game checkBoard
+        //This function can be run when the bottom tab is clicked
+        //And when a game ends or maybe the tab will prompt to be clicked
+        //When someone wins!
+        // clearGameBoard()
       }
       //now check to see if they all have the class name of player-two
       else if (square1.classList.contains('ConnectFour_playerTwo__1xcjw') &&
@@ -146,7 +159,8 @@ const ConnectFour = ({props}) => {
         square3.classList.contains('ConnectFour_playerTwo__1xcjw') &&
         square4.classList.contains('ConnectFour_playerTwo__1xcjw')) {
 
-        result.innerHTML = "Player Two Wins!"
+        result.innerHTML = "Player Two Wins!";
+        setIsRunning(false);
       }
     }
   }
@@ -161,6 +175,9 @@ const ConnectFour = ({props}) => {
       <main className={styles.main}>
         <h1>Connect-<span className={styles.accent}>Four</span></h1>
         <div className={styles.nav}>
+          <div className={styles.start} onClick={startButtonHandler}>
+            Start
+          </div>
           <Link href='/' passHref>
             <div className={styles.start}>
               Go back
