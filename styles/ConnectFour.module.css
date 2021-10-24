@@ -1,0 +1,86 @@
+.container {
+  min-height: 100vh;
+  padding: 0 0.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.main {
+  padding: 5rem 0;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.accent {
+  color: #ff3e39;
+}
+
+.description {
+  line-height: 1.5;
+  font-size: 1.5rem;
+  color: #b3b3b3;
+}
+
+.start {
+  background: #1b1b1b;
+  border: solid 1px #3a3a3a;
+  border-radius: 10px;
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin: 1.245rem 1.245rem;
+  padding: 10px 20px;
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+
+.start:hover,
+.start:focus,
+.start:active {
+  color: #ff3e39;
+  border-color: #ff3e39;
+  cursor: pointer;
+}
+
+.nav {
+  display:flex;
+  flex-direction: row;
+}
+
+.grid {
+  border: 1px solid white;
+  display: flex;
+  flex-wrap: wrap;
+  height: 302px;
+  width: 352px;
+}
+
+.grid div {
+  height: 50px;
+  width: 50px;
+}
+
+.playable {
+  border: 1px solid white;
+}
+
+.taken {
+}
+
+.playerOne {
+  border: 1px solid white;
+  background: dodgerblue;
+}
+
+.playerTwo {
+  border: 1px solid white;
+  background: lightpink;
+}
+
+.bottom {
+  background: black;
+}

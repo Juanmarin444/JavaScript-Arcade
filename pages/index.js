@@ -44,6 +44,13 @@ export default function Home() {
             </a>
           </Link>
 
+          <Link href="/connect-four">
+            <a className={styles.card}>
+              <h2>Connect-Four &rarr;</h2>
+              <p>Connect-Four is a two-player game in which players alternately place pieces on a vertical board.</p>
+            </a>
+          </Link>
+
           <Link href="/">
             <a className={styles.card}>
               <h2>A Different Game &rarr;</h2>
