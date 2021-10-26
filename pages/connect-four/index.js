@@ -4,8 +4,12 @@ import Footer from '../../components/Footer'
 import styles from '../../styles/ConnectFour.module.css'
 import Link from 'next/link'
 
+// Alert Messages
+import { alertService } from '../../services'
+import { Alert } from '../../components/alert';
 
 const ConnectFour = ({props}) => {
+
   const [ isRunning, setIsRunning ] = useState(false);
 
   const squaresRef = useRef(null)
@@ -15,8 +19,6 @@ const ConnectFour = ({props}) => {
   useEffect(() => {
     if (isRunning) {
       startGame();
-    } else {
-      console.log("Press Start");
     }
   });
 
@@ -25,6 +27,7 @@ const ConnectFour = ({props}) => {
   }
 
   const startGame = () => {
+
     const squares = squaresRef.current.childNodes;
     const result = resultRef.current;
     const currentPlayer = currentPlayerRef.current;
@@ -41,13 +44,19 @@ const ConnectFour = ({props}) => {
                 squares[index].classList.add('ConnectFour_playerOne__3_wbE');
                 player = 2
                 currentPlayer.innerHTML = player
-                checkBoard(squares, result)
+                console.log(result.innerHTML.length);
+                if (result.innerHTML.length === 0) {
+                  checkBoard(squares, result)
+                }
               } else if (player === 2) {
                 squares[index].classList.replace('ConnectFour_playable__zZbqW', 'ConnectFour_taken__2rwDL')
                 squares[index].classList.add('ConnectFour_playerTwo__1xcjw')
                 player = 1
                 currentPlayer.innerHTML = player
-                checkBoard(squares, result)
+                console.log(result.innerHTML.length);
+                if (result.innerHTML.length === 0) {
+                  checkBoard(squares, result)
+                }
               }
             } else {
               alert("can't go here!")
@@ -58,6 +67,8 @@ const ConnectFour = ({props}) => {
         }
       }
     )(i)
+
+
   }
 
   const checkBoard = (squares, result) => {
@@ -145,8 +156,8 @@ const ConnectFour = ({props}) => {
         square3.classList.contains('ConnectFour_playerOne__3_wbE') &&
         square4.classList.contains('ConnectFour_playerOne__3_wbE')) {
         //if they do, player-one is passed as the winner
-        result.innerHTML = 'Player One Wins!';
-        setIsRunning(false);
+        result.innerHTML = `Player <strong class=${styles.accent}>One</strong> Wins!`;
+        // setTimeout(() => {setIsRunning(false)}, 10000)
         //Create a function to clear game checkBoard
         //This function can be run when the bottom tab is clicked
         //And when a game ends or maybe the tab will prompt to be clicked
@@ -159,10 +170,15 @@ const ConnectFour = ({props}) => {
         square3.classList.contains('ConnectFour_playerTwo__1xcjw') &&
         square4.classList.contains('ConnectFour_playerTwo__1xcjw')) {
 
-        result.innerHTML = "Player Two Wins!";
-        setIsRunning(false);
+        result.innerHTML = `Player <strong class=${styles.accent}>Two</strong> Wins!`;
+
+        // setTimeout(() => {setIsRunning(false)}, 10000)
       }
     }
+  }
+
+  const releaseGamePieces = () => {
+    setIsRunning(false)
   }
 
   return (
@@ -184,16 +200,22 @@ const ConnectFour = ({props}) => {
             </div>
           </Link>
         </div>
-        <h3>Current Player: Player<span id="current-player" ref={currentPlayerRef}>1</span></h3>
-        <h3 id="result" ref={resultRef}></h3>
-        <div className={styles.grid} ref={squaresRef}>
-          {[...Array(49).keys()].map((index) => ( index >= 42 ?
-            <div key={index} className={`${styles.taken} ${styles.bottom}`}></div>
-          :
-          <div key={index} className={styles.playable}></div>
-          ))}
+        {isRunning ? <div className={styles.gameBoard}>
+          <h3>Current Player: Player<span id="current-player" ref={currentPlayerRef}>1</span></h3>
+          <h3 id="result" ref={resultRef}></h3>
+          <div className={styles.grid} ref={squaresRef}>
+            {[...Array(49).keys()].map((index) => ( index >= 42 ?
+              <div key={index} className={`${styles.taken} ${styles.bottom}`}></div>
+            :
+            <div key={index} className={styles.playable}></div>
+            ))}
+          </div>
+          <h3>Release the game pieces below</h3>
+          <div className = {styles.start} onClick={releaseGamePieces}>Release</div>
+        </div> : <><h3>Press Start</h3></>}
+        <div className={styles.alertContainer}>
+          <Alert />
         </div>
-        <h3>Release the game pieces</h3>
       </main>
       <Footer />
     </div>

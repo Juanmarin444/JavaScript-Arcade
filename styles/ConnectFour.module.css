@@ -9,7 +9,7 @@
 }
 
 .main {
-  padding: 5rem 0;
+  padding: 4.5rem 0;
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -83,4 +83,17 @@
 
 .bottom {
   background: black;
+}
+
+.alertContainer {
+  height: 55px;
+}
+
+.gameBoard {
+  /* padding: 0 0; */
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
