@@ -44,7 +44,7 @@ const ConnectFour = ({props}) => {
                 squares[index].classList.add('ConnectFour_playerOne__3_wbE');
                 player = 2
                 currentPlayer.innerHTML = player
-                console.log(result.innerHTML.length);
+
                 if (result.innerHTML.length === 0) {
                   checkBoard(squares, result)
                 }
@@ -53,16 +53,16 @@ const ConnectFour = ({props}) => {
                 squares[index].classList.add('ConnectFour_playerTwo__1xcjw')
                 player = 1
                 currentPlayer.innerHTML = player
-                console.log(result.innerHTML.length);
+
                 if (result.innerHTML.length === 0) {
                   checkBoard(squares, result)
                 }
               }
             } else {
-              alert("can't go here!")
+              alertService.success(`Can't place <strong>tokens</strong> here!`, {autoClose: true, keepAfterRouteChange: false});
             }
           } else {
-            console.log("Don't touch that or the game chips will fall out!");
+            alertService.success(`<strong>Jiggling</strong> the game board is not permitted!`, {autoClose: true, keepAfterRouteChange: false});
           }
         }
       }
@@ -143,36 +143,25 @@ const ConnectFour = ({props}) => {
       [12, 19, 26, 33],
       [13, 20, 27, 34],
     ]
-    //now take the 4 values in each winningCombinations and plug them into the squares
     for(let y = 0; y < winningCombinations.length; y++) {
       const square1 = squares[winningCombinations[y][0]]
       const square2 = squares[winningCombinations[y][1]]
       const square3 = squares[winningCombinations[y][2]]
       const square4 = squares[winningCombinations[y][3]]
 
-      //now check those arrays to see if they all have the class of player-one
       if (square1.classList.contains('ConnectFour_playerOne__3_wbE') &&
         square2.classList.contains('ConnectFour_playerOne__3_wbE') &&
         square3.classList.contains('ConnectFour_playerOne__3_wbE') &&
         square4.classList.contains('ConnectFour_playerOne__3_wbE')) {
-        //if they do, player-one is passed as the winner
+
         result.innerHTML = `Player <strong class=${styles.accent}>One</strong> Wins!`;
-        // setTimeout(() => {setIsRunning(false)}, 10000)
-        //Create a function to clear game checkBoard
-        //This function can be run when the bottom tab is clicked
-        //And when a game ends or maybe the tab will prompt to be clicked
-        //When someone wins!
-        // clearGameBoard()
       }
-      //now check to see if they all have the class name of player-two
       else if (square1.classList.contains('ConnectFour_playerTwo__1xcjw') &&
         square2.classList.contains('ConnectFour_playerTwo__1xcjw') &&
         square3.classList.contains('ConnectFour_playerTwo__1xcjw') &&
         square4.classList.contains('ConnectFour_playerTwo__1xcjw')) {
 
         result.innerHTML = `Player <strong class=${styles.accent}>Two</strong> Wins!`;
-
-        // setTimeout(() => {setIsRunning(false)}, 10000)
       }
     }
   }
@@ -185,7 +174,7 @@ const ConnectFour = ({props}) => {
     <div className={styles.container}>
       <Head>
         <title>Connect-Four</title>
-        <meta name="description" content="Challenge a friend to a game of connect-four" />
+        <meta name="description" content="play connect-four with your friends" />
         <link rel="icon" href="/favicon.svg" />
       </Head>
       <main className={styles.main}>

@@ -68,6 +68,10 @@
   border: 1px solid white;
 }
 
+.playable:hover {
+  background: #313131
+}
+
 .taken {
 }
 
