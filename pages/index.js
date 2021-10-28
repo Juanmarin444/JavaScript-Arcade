@@ -44,6 +44,13 @@ export default function Home() {
             </a>
           </Link>
 
+          <Link href="/connect-four">
+            <a className={styles.card}>
+              <h2>Connect-Four &rarr;</h2>
+              <p>Challenge a friend to a game of connect-four!</p>
+            </a>
+          </Link>
+
           <Link href="/">
             <a className={styles.card}>
               <h2>A Different Game &rarr;</h2>
