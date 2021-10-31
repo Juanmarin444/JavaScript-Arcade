@@ -51,10 +51,10 @@ export default function Home() {
             </a>
           </Link>
 
-          <Link href="/">
+          <Link href="/snake">
             <a className={styles.card}>
-              <h2>A Different Game &rarr;</h2>
-              <p>A different game.</p>
+              <h2>Snake &rarr;</h2>
+              <p>Play snake if you're bored!</p>
             </a>
           </Link>
 
