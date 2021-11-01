@@ -54,7 +54,7 @@ export default function Home() {
           <Link href="/snake">
             <a className={styles.card}>
               <h2>Snake &rarr;</h2>
-              <p>Play snake if you're bored!</p>
+              <p>{`Play snake if you're bored!`}</p>
             </a>
           </Link>
 
