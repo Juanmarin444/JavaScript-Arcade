@@ -1,5 +1,6 @@
 .container {
   min-height: 100vh;
+  /* min-width: 595px; */
   padding: 0 0.5rem;
   display: flex;
   flex-direction: column;
@@ -49,4 +50,17 @@
 .nav {
   display:flex;
   flex-direction: row;
+}
+
+.grid {
+  width: 404px;
+  height: 404px;
+  display: flex;
+  flex-wrap: wrap;
+  border: 2px solid;
+}
+
+.grid div {
+  width: 20px;
+  height: 20px;
 }

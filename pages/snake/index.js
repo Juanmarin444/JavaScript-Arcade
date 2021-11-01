@@ -14,13 +14,15 @@ const Snake = ({props}) => {
       </Head>
       <main className={styles.main}>
         <h1>Snake<span className={styles.accent}></span></h1>
-        <p className={styles.description}>Coming Soon!</p>
         <div className={styles.nav}>
           <Link href='/' passHref>
             <div className={styles.start}>
               Go back
             </div>
           </Link>
+        </div>
+        <div className={styles.grid}>
+          {[...Array(400).keys()].map(index => <div key={index}></div>)}
         </div>
       </main>
       <Footer />
