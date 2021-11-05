@@ -12,7 +12,8 @@ import Footer from '../../components/Footer'
 import styles from '../../styles/Snake.module.css'
 
 // Game Functionality
-import { startGame, controls } from './startGame'
+// import { startGame, controls } from './startGame'
+import { startGame, controls } from '../../services/snake/startGame'
 
 //Alert Messages
 import { Alert } from '../../components/alert';
