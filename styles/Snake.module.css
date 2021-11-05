@@ -64,3 +64,11 @@
   width: 20px;
   height: 20px;
 }
+
+.snake {
+  background: green;
+}
+
+.apple {
+  background: red;
+}
