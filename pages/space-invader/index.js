@@ -4,7 +4,7 @@ import Footer from '../../components/Footer'
 import styles from '../../styles/SpaceInvader.module.css'
 import Link from 'next/link'
 
-import { startGame, playerMotionControls, laserControl } from '../../services/SpaceInvader/startGame'
+import { startGame, playerMotionControls, laserControl } from '../../services/spaceInvader/startGame'
 
 const SpaceInvader = ({props}) => {
   const [isRunning, setIsRunning] = useState(false);
