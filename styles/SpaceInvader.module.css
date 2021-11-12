@@ -50,3 +50,41 @@
   display:flex;
   flex-direction: row;
 }
+
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+  border: solid 1px;
+  width: 602px;
+  height: 602px;
+}
+
+.grid div {
+  width: 40px;
+  height: 40px;
+}
+
+.player {
+  background-image: url('../public/spaceInvaderImages/player.png');
+  background-size: cover;
+}
+
+.invader {
+  background-image: url('../public/spaceInvaderImages/invader.png');
+  background-size: cover;
+}
+
+.explosion {
+  background-image: url('../public/spaceInvaderImages/explosion.png');
+  background-size: cover;
+}
+
+.poof {
+  background-image: url('../public/spaceInvaderImages/poof.png');
+  background-size: cover;
+}
+
+.laser {
+  background-image: url('../public/spaceInvaderImages/laser.png');
+  background-size: cover;
+}
