@@ -1,3 +1,5 @@
+import { alertService } from '../../services'
+
 let gridWidth = 15
 let squares
 
@@ -61,18 +63,23 @@ const invaderMotion = () => {
     squares[playerPositionIndex].classList.add('SpaceInvader_explosion__1XOKC')
     clearInterval(invaderMotionInterval)
     score.textContent = 'Game Over'
+    alertService.success(`You <strong>lost</strong>!`, {autoClose: true, keepAfterRouteChange: false});
   }
 
   for (let i = 0; i < invaders.length; i++) {
     if (invaders[i] > (squares.length - (gridWidth - 1))) {
       clearInterval(invaderMotionInterval)
       score.textContent = 'Game Over'
+      console.log("gameOver");
+      alertService.success(`You <strong>lost</strong>!`, {autoClose: true, keepAfterRouteChange: false});
+      break;
     }
   }
 
   if (invadersDefeated.length === invaders.length) {
     clearInterval(invaderMotionInterval)
     score.textContent = ' You Win'
+    alertService.success(`You <strong>win</strong>!`, {autoClose: true, keepAfterRouteChange: false});
   }
 }
 

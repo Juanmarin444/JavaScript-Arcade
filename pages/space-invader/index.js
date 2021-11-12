@@ -3,8 +3,9 @@ import Head from 'next/head'
 import Footer from '../../components/Footer'
 import styles from '../../styles/SpaceInvader.module.css'
 import Link from 'next/link'
-
 import { startGame, playerMotionControls, laserControl } from '../../services/spaceInvader/startGame'
+import { Alert } from '../../components/alert';
+
 
 const SpaceInvader = ({props}) => {
   const [isRunning, setIsRunning] = useState(false);
@@ -43,7 +44,9 @@ const SpaceInvader = ({props}) => {
         <div className={styles.grid} ref={squaresRef}>
           {[...Array(225).keys()].map(index => <div key={index}></div>)}
         </div>
-        {/* <div className={styles.poof}>yo</div> */}
+        <div className={styles.alertContainer}>
+          <Alert />
+        </div>
       </main>
       <Footer />
     </div>
