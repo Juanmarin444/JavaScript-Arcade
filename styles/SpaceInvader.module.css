@@ -65,19 +65,26 @@
 }
 
 .player {
-  background: red;
-  border-radius: 20px;
+  background-image: url('../public/spaceInvaderImages/player.png');
+  background-size: cover;
 }
 
 .invader {
-  background: green;
-  border-radius: 20px;
+  background-image: url('../public/spaceInvaderImages/invader.png');
+  background-size: cover;
 }
 
 .explosion {
-  background: orange;
+  background-image: url('../public/spaceInvaderImages/explosion.png');
+  background-size: cover;
+}
+
+.poof {
+  background-image: url('../public/spaceInvaderImages/poof.png');
+  background-size: cover;
 }
 
 .laser {
-  background: cyan;
+  background-image: url('../public/spaceInvaderImages/laser.png');
+  background-size: cover;
 }

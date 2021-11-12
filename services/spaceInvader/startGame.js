@@ -28,7 +28,6 @@ export const startGame = (squaresReference, scoreReference) => {
   score.textContent = result
   playerPositionIndex = 202
 
-
   invaders.forEach( invader => squares[invader].classList.add('SpaceInvader_invader__3DPeZ') )
   squares[playerPositionIndex].classList.add('SpaceInvader_player__3dDGN')
 
@@ -102,7 +101,17 @@ export const laserControl = (e) => {
       squares[laserPositionIndex].classList.remove('SpaceInvader_invader__3DPeZ', 'SpaceInvader_laser__1x0Bk')
       squares[laserPositionIndex].classList.add('SpaceInvader_explosion__1XOKC')
 
-      setTimeout(() => squares[laserPositionIndex].classList.remove('SpaceInvader_explosion__1XOKC'), 250)
+      setTimeout(() => {
+        squares[laserPositionIndex].classList.remove('SpaceInvader_explosion__1XOKC')
+      }, 175)
+
+      setTimeout(() => {
+        squares[laserPositionIndex].classList.add('SpaceInvader_poof__35Bbq')
+        setTimeout(() => {
+          squares[laserPositionIndex].classList.remove('SpaceInvader_poof__35Bbq')
+        }, 125)
+      }, 125)
+
       clearInterval(laserMotionInterval)
 
       const invaderDefeated = invaders.indexOf(laserPositionIndex)

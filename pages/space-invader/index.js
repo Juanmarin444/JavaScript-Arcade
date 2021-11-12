@@ -43,7 +43,7 @@ const SpaceInvader = ({props}) => {
         <div className={styles.grid} ref={squaresRef}>
           {[...Array(225).keys()].map(index => <div key={index}></div>)}
         </div>
-        {/* <div className={styles.laser}>yo</div> */}
+        {/* <div className={styles.poof}>yo</div> */}
       </main>
       <Footer />
     </div>
