@@ -58,7 +58,7 @@ export default function Home() {
             </a>
           </Link>
 
-          <Link href="/">
+          <Link href="/orb-siege">
             <a className={styles.card}>
               <h2>Some Other Game &rarr;</h2>
               <p>Some other game.</p>

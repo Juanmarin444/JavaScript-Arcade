@@ -1,0 +1,83 @@
+.container {
+  margin: 0;
+  padding: 0;
+  background: #111;
+}
+
+.accent {
+  color: #ff3e39;
+}
+
+.scoreContainer {
+  position: fixed;
+  background: #111;
+  display:flex;
+  user-select: none;
+}
+.scoreContainer > span {
+  padding: 5px;
+  font-size: 18px;
+  font-weight: 900;
+  color: white;
+}
+
+.uiModal {
+  position: fixed;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.bg {
+  margin: auto auto;
+  width: 45%;
+  height: 45%;
+  background: #111;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+}
+
+.bg h1 {
+  font-size: 80px;
+  margin: 0;
+  color: white;
+}
+
+.bg h2 {
+  font-size: 40px;
+  margin: 0;
+  color: white;
+}
+
+.bg h3 {
+  font-size: 18px;
+  color: white;
+}
+
+.startBtn {
+  width: 40%;
+  height: 20%;
+}
+
+.startBtn > button {
+  background: #1b1b1b;
+  border: 1px solid #3a3a3a;
+  border-radius: 10px;
+  color: white;
+  font-size: 24px;
+  font-weight: 900;
+  height: 100%;
+  width:100%;
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+
+.startBtn > button:hover {
+  color: #ff3e39;
+  border-color: #ff3e39;
+}
