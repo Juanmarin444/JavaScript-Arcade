@@ -20,7 +20,7 @@ const OrbSiege = () => {
     <div className={styles.container}>
       <Head>
         <title>Orb Siege</title>
-        <meta name="description" content="Last as long as you can against the attach of the rainbow orbs" />
+        <meta name="description" content="Last as long as you can against the attack of the rainbow orbs" />
         <link rel="icon" href="/favicon.svg" />
       </Head>
       <div className={styles.scoreContainer}><span>Score:</span><span ref={scoreRef} id="score">0</span></div>

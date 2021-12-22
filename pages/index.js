@@ -60,8 +60,8 @@ export default function Home() {
 
           <Link href="/orb-siege">
             <a className={styles.card}>
-              <h2>Some Other Game &rarr;</h2>
-              <p>Some other game.</p>
+              <h2>Orb Siege &rarr;</h2>
+              <p>Last as long as you can against the attack of the rainbow orbs</p>
             </a>
           </Link>
         </div>
