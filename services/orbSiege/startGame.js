@@ -220,8 +220,8 @@ export const shoot = (event) => {
 
 export const startGame = (canvasRef, scoreRef, uiModalRef, endScoreRef) => {
   canvas = canvasRef.current
-  canvas.width = innerHeight*.6
-  canvas.height = innerHeight*.6
+  canvas.width = innerWidth
+  canvas.height = innerHeight
   score = scoreRef.current
   uiModal = uiModalRef.current
   endScore = endScoreRef.current
