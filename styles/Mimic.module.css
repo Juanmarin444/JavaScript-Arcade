@@ -1,0 +1,75 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+.mimicFont {
+    font-family: 'Press Start 2P', cursive;
+}
+
+
+.main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    max-height: 900px;
+}
+
+.title {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 3rem;
+    color: oldlace;
+    margin: 5% 0;
+}
+
+.game {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
+    justify-items: center;
+    align-items: center;
+    height: 500px;
+    width: 500px;
+}
+
+.btn {
+    border: 1rem solid black;
+    height: 200px;
+    width: 200px;
+    border-radius: 15%;
+    cursor: pointer;
+}
+
+.red { 
+    background: #a71c26;
+}
+
+.green {
+    background: #367c2b;
+}
+
+.blue {
+    background: #1F5C86;
+}
+
+.yellow {
+    background: #fcb026;
+}
+
+.click {
+    background: #949494;
+    box-shadow:0px 0px 25px 20px #b3b3b3;
+}
+
+.transition {
+    background: #313131;
+}
+
+.wrong {
+    background: red;
+}
+
+.footer {
+    margin: 2.5% 0;
+    font-family: 'Press Start 2P', cursive;
+    color: oldlace;
+}

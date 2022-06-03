@@ -12,7 +12,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 
 // Components
-import { Alert } from '../../components/alert';
+import { Alert } from '../../components/alert'
 import Footer from '../../components/Footer'
 
 const MemoryGame = () => {

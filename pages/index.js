@@ -64,6 +64,13 @@ export default function Home() {
               <p>Last as long as you can against the attack of the rainbow orbs</p>
             </a>
           </Link>
+
+          <Link href="/mimic">
+            <a className={styles.card}>
+              <h2>Mimic &rarr;</h2>
+              <p>Mimic the growing pattern. Test your short term memory</p>
+            </a>
+          </Link>
         </div>
       </main>
       <Footer />
